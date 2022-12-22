@@ -8,7 +8,8 @@ createApp({
     data(){
         return{
             numbers : [],
-            userNumber : 5,
+            userNumber : 0,
+            sum : 0,
     }
     },
 
@@ -16,12 +17,17 @@ createApp({
             getRandomNumbers(){
                 axios.get(`https://flynn.boolean.careers/exercises/api/array/integers?min=1&max=100&items=${this.userNumber}`)
                 .then((response) => {
-                    this.numbers.push(response.response)
-                    
-                    console.log(response.response)
-                    
+                    this.numbers.push(response.data.response)
+                    console.log(this.numbers)
                 })
+            
             },
+            getSumNumbers(){
+                for(let i = 0; i < this.numbers.length; i++){
+                    this.sum = this.sum + parseInt(this.numbers[i]);
+                }
+                return this.sum
+            }
 
     },
     

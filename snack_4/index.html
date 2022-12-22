@@ -13,7 +13,11 @@
         
         <div id="app">
             <main>
-                <div @click="getRandomNumbers">ciao</div>
+                <div class="wrapper">
+                    <input type="number" v-model="userNumber">
+                    <a href="#" class="btn btn-success" @click="getRandomNumbers">invia</a>
+                    <p>{{getSumNumbers()}}</p>
+                </div>
             </main>
         </div>
         
